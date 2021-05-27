@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+	   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
 		
 	</script>
     <title>Homepage</title>
@@ -20,12 +20,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Search-->
-	<form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <div class="search">
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Cari" aria-label="Cari">
       <button class="btn btn-outline-success" type="submit"><img src="search.svg" width="30" height="25"></button>
-      <a href="#" ></a>
     </form>
+    </div>
     <!-- Search-->
+    <span class="navbar-brand mb-0 h1" id="logo">Cafeku</span>
     <!--Offcanvas-->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
   <div class="offcanvas-header">
@@ -33,12 +35,14 @@
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-  	<ul class="list-group list-group-flush" >
-  	  <li href="#" type="button" class="list-group-item list-group-item-action" id="list-home-list" data-bs-toggle="list"  role="tab" aria-controls="list-home">Home</li>
-	  <li href="#" type="button" class="list-group-item list-group-item-action" id="list-foods-list" data-bs-toggle="list"  role="tab" aria-controls="list-foods">Foods</li>
-	  <li href="#" type="button" class="list-group-item list-group-item-action" id="list-beverages-list" data-bs-toggle="list"  role="tab" aria-controls="list-beverages">Beverages</li>
-	  <li href="#" type="button" class="list-group-item list-group-item-action" id="list-about-list" data-bs-toggle="list"  role="tab" aria-controls="list-about">About us</li>
-	</ul>
+    <!--Menu-->
+  	<div class="list-group list-group-flush">
+  	<a href="#" type="button" class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" role="tab" aria-controls="list-home">Home</a>
+	  <a href="#" type="button" class="list-group-item list-group-item-action" id="list-foods-list" data-bs-toggle="list" role="tab" aria-controls="list-foods">Foods</a>
+	  <a href="#" type="button" class="list-group-item list-group-item-action" id="list-beverages-list" data-bs-toggle="list"  role="tab" aria-controls="list-beverages">Beverages</a>
+	  <a href="#" type="button" class="list-group-item list-group-item-action" id="list-about-list" data-bs-toggle="list"  role="tab" aria-controls="list-about">About us</a>
+	</div>
+    <!--Menu-->
   </div>
 	<!--Offcanvas-->
 </nav>
@@ -53,22 +57,22 @@
     <div class="carousel-item active">
       <img src="https://cdn-2.tstatic.net/travel/foto/bank/images/cafe-sawah-pujon-kidul-di-malang.jpg" class="d-block w-50" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+        <h5>Cafeku</h5>
+        <p>Relax and serious vibes</p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="https://www.malang-guidance.com/wp-content/uploads/2019/12/Cafe-Sawah-Malang-Guidance.jpg" class="d-block w-50" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
+        <h5>Landscape</h5>
+        <p>Featuring with field rice views</p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="https://www.desabisa.com/wp-content/uploads/2018/10/Image-by-explorewisatadotcom.jpg" class="d-block w-50" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
+        <h5>Milennial</h5>
+        <p>suitable for meeting and reunions</p>
       </div>
     </div>
   </div>
