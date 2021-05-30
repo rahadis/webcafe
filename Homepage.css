@@ -4,3 +4,16 @@
 #logo{
 	color: white;
 }
+#caption{
+	color: white;
+}
+#carouseldark{
+	width: 700px;
+	height: auto;
+}
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
