@@ -6,13 +6,12 @@
 }
 #logo{
 	color: white;
+	font-size: x-large;
 }
-.main{
+.container{
 	display: flex;
-}
-.gallery{
-	margin-left: 500px;
-	border: solid black;
+	flex-direction: row;
+	justify-content: center;
 }
 a:link {
   text-decoration: none;
@@ -23,7 +22,4 @@ a:visited {
 .container img{
 	height: 200px;
 	width: auto;
-}
-.main-content{
-	margin-right:75px ;
 }
