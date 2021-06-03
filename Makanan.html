@@ -9,58 +9,57 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-    let indicator = document.querySelector('.indicator').children;
-    let main = document.querySelector('.items').children;
-    for (let i=0; i<indicator.length;i++)
-    {
-      indicator[i].onclick = function(){
-        for(let x=0; x<indicator.length; x++)
-        {
-          indicator[x].classList.remove('active');
-        } 
-        this.classList.add('active');
-        const displayItems = this.getAttribute('data-filter');
-        for(let z=0; z< main.length;z++)
-        {
-          main[z].style.transform = 'scale(0)';
-          setTimeout(()=>{
-            main[z].style.display = 'none';
-          },500);
-
-          if ((main[z].getAttribute('data-category')== displayItems)|| displayItems == 'all')
-          {
-            main[z].style.transform = 'scale(1)';
-          setTimeout(()=>{
-            main[z].style.display = 'block';
-          },500);
-          }
-        }
-      }
-    }
-    </script>
+    <script type="text/javascript" src="Makanan.js"></script>
     <title>Foods</title>
   </head>
   <body>
   <nav class="navbar navbar-light bg-info">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-expanded="false" aria-label="Toggle offcanvas">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-expanded="false" aria-label="Toggle offcanvas">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
+  <!--Filter-->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Filter</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+  <div class="list-group list-group-flush btn-group" role="group">
+  <input type="radio" class="btn-check" name="btnradio" id="all" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="all">All</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="murah" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="murah">Around 10k</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="medium" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="medium">Around 15k</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="mahal" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="mahal">Around 20k</label>
+    </div>
+    <br>
+    <button class="btn btn-secondary" onclick="filter()">Filter</button>
+  </div>
+  </div>
+  <!--Filter-->
     <!-- Search-->
     <div class="search">
     <form class="d-flex">
+      <button class="btn btn-outline-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="filter"><img src="https://raw.githubusercontent.com/rahadis/webcafe/d5d1c921db462e5f96ad5a3b012dd24be5378fae/img/filter_alt_black_24dp.svg" width="30" height="25"></button>
       <input class="form-control me-2" type="search" placeholder="Cari" aria-label="Cari">
       <button class="btn btn-outline-success" type="submit"><img src="https://raw.githubusercontent.com/rahadis/webcafe/aa0023f962f4b735edf9bef0c99b497dc7c72bcb/img/search.svg" width="30" height="25"></button>
+      <button class="btn btn-outline-danger" type="button" id="cart"><img src="https://raw.githubusercontent.com/rahadis/webcafe/444846b42ee6202888cd6920d891552532fdd194/img/cart2.svg" width="30" height="25"></button>
     </form>
     </div>
     <!-- Search-->
     <a href="Homepage.html">
-    <span class="navbar-brand mb-0 h1" id="logo">Cafeku</span></a>
+    <span class="navbar-brand mb-0 h1" id="logo">Onibus</span></a>
     <!--Offcanvas-->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasLabel">Menu</h5>
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Menu</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
@@ -75,8 +74,8 @@
 	<!--Offcanvas-->
 </nav>
 <div class="main-content">
-  <div class="container" style="display:flex;">
-    <div class="card border border-5" style="width: 50rem; right: 50px;">
+  <div class="container">
+    <div class="card border border-5" style="width: 400px; right: 50px;" id="mahal1">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/bulgogi.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Bulgogi </h5>
@@ -86,7 +85,7 @@
           <button>Buy</button>
         </div>   
     </div>
-      <div class="card border border-5" style="width: 50rem;">  
+      <div class="card border border-5 " style="width: 400px;" id="mahal2">  
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/beef%20teriyaki.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Beef Teriyaki</h5>
@@ -96,7 +95,7 @@
           <button>Buy</button>  
         </div>
       </div>
-      <div class="card border border-5" style="width: 50rem;left: 50px;">
+      <div class="card border border-5" style="width: 400px;left: 50px;" id="medium1">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/ayam%20curry.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Chicken curry</h5>
@@ -108,7 +107,7 @@
           <button>Buy</button>
         </div>
       </div>
-      <div class="card border border-5" style="width: 50rem;left: 100px;">  
+      <div class="card border border-5" style="width: 400px;left: 100px;" id="mahal3">  
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/nasi%20serpang.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Nasi Serpang</h5>
@@ -119,7 +118,7 @@
           <button>Buy</button>
         </div>
       </div>
-      <div class="card border border-5" style="width: 50rem;left: 150px;">  
+      <div class="card border border-5" style="width: 400px;left: 150px;" id="medium2">  
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/ayam%20geprek.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Ayam Geprek</h5>
@@ -132,8 +131,8 @@
   </div>
   <br>
   <br>
-  <div class="container" style="display:flex;">
-    <div class="card border border-5" style="width: 50rem; right: 50px;">
+  <div class="container">
+    <div class="card border border-5" style="width: 400px; right: 50px;" id="mahal4">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/ayam%20bumbu.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Ayam Bumbu </h5>
@@ -143,7 +142,7 @@
           <button>Buy</button>
         </div>   
     </div>
-    <div class="card border border-5" style="width: 50rem;">
+    <div class="card border border-5" style="width: 400px;" id="medium3">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/lele%20penyet.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Lele penyet</h5>
@@ -155,7 +154,7 @@
           <button>Buy</button>
         </div>
     </div>
-    <div class="card border border-5" style="width: 50rem;left: 50px;">
+    <div class="card border border-5" style="width: 400px;left: 50px;" id="murah1">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/penyetan%203T.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Penyetan 3T</h5>
@@ -166,7 +165,7 @@
           <button>Buy</button>
         </div>
     </div>
-    <div class="card border border-5" style="width: 50rem;left: 100px;">
+    <div class="card border border-5" style="width: 400px;left: 100px;" id="murah2">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/indomie%20carbonara.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Indomie carbonara</h5>
@@ -178,7 +177,7 @@
           <button>Buy</button>
         </div>
     </div>
-    <div class="card border border-5" style="width: 50rem;left: 150px;">
+    <div class="card border border-5" style="width: 400px;left: 150px;" id="murah3">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/indomie%20goreng.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Indomie Goreng</h5>
@@ -194,8 +193,8 @@
   <br>
   <br>
 
-  <div class="container" style="display:flex;">
-    <div class="card border border-5" style="width: 50rem; right: 50px;">
+  <div class="container">
+    <div class="card border border-5" style="width: 400px; right: 50px;" id="murah4">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/mie%20rawit.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Mie Rawit </h5>
@@ -207,7 +206,7 @@
           <button>Buy</button>
         </div>
     </div>
-    <div class="card border border-5" style="width: 50rem;">
+    <div class="card border border-5" style="width: 400px;" id="murah5">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/kentang%20goreng.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">kentang Goreng</h5>
@@ -219,7 +218,7 @@
           <button>Buy</button>
         </div>
     </div>
-    <div class="card border border-5" style="width: 50rem;left: 50px;">
+    <div class="card border border-5" style="width: 400px;left: 50px;" id="murah6">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/sosis.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Sosis Goreng</h5>
@@ -231,7 +230,7 @@
           <button>Buy</button>
         </div>
     </div>
-    <div class="card border border-5" style="width: 50rem;left: 100px;">
+    <div class="card border border-5" style="width: 400px;left: 100px;" id="murah7">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/sewel.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Sewel Crispy</h5>
@@ -241,7 +240,7 @@
           <button>Buy</button>
         </div>
     </div>
-    <div class="card border border-5" style="width: 50rem;left: 150px;">
+    <div class="card border border-5" style="width: 400px;left: 150px;" id="murah8">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/tahu%20krispy.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Tahu krispy</h5>
@@ -255,8 +254,8 @@
   <br>
   <br>
 
-  <div class="container" style="display:flex;">
-    <div class="card border border-5" style="width: 50rem; right: 50px;">
+  <div class="container">
+    <div class="card border border-5" style="width: 400px; right: 50px;" id="murah9">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/sempol.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Sempol ayam </h5>
@@ -268,7 +267,7 @@
           <button>Buy</button>
         </div>    
     </div>
-    <div class="card border border-5" style="width: 50rem;">
+    <div class="card border border-5" style="width: 400px;" id="murah10">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/jamur.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Jamur Krispy</h5>
@@ -280,7 +279,7 @@
           <button>Buy</button>
         </div>
     </div>
-    <div class="card border border-5" style="width: 50rem;left: 50px;">
+    <div class="card border border-5" style="width: 400px;left: 50px;" id="medium4">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/corndog.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Corndog</h5>
@@ -292,17 +291,17 @@
           <button>Buy</button>
         </div>
     </div>
-    <div class="card border border-5" style="width: 50rem;left: 100px;">
+    <div class="card border border-5" style="width: 400px;left: 100px;" id="medium5">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/siomay.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Siomay Mozarella</h5>
           <p class="card-text">Siomay Mozarella<br>
            yang berisi keju mozarella yang membuat mulut menjadi lebih lebar<br>
-           12.000</p>
+           15.000</p>
           <button>Buy</button>
         </div>
     </div>
-    <div class="card border border-5" style="width: 50rem;left: 150px;">
+    <div class="card border border-5" style="width: 400px;left: 150px;" id="medium6">
         <img src="https://raw.githubusercontent.com/rahadis/webcafe/df210b3d8de2efef850be29bb380e6d380944962/makanan/nugget.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Nugget Mozarellla</h5>
